@@ -8,3 +8,7 @@ function createBoard(size) {
     }
     return board;
 }
+
+function knightMoves(start) {
+    board[start[0]][start[1]] = 'K';
+}
