@@ -41,3 +41,21 @@ function createGraph(size) {
     }
     return graph;
 }
+
+// Returns a set with all the moves that it takes a knight to traverse the whole board
+// given a source coordinates in the form [x,y]
+function traverseBoard(src, set = new Set()) {
+    let visited = set;
+    let source;
+    if (typeof src === 'object') {
+        source = src.join();
+    } else {
+        source = src;
+    }
+    if (visited.has(source)) return;
+    visited.add(source);
+    for (let neighbor of graph[source]) {
+        traverseBoard(neighbor, visited);
+    }
+    return visited;
+}
