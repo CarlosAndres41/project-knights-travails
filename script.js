@@ -16,14 +16,14 @@ function knightMoves(start) {
 // Returns an array whit the coordinates of the valid next moves
 function validMoves(x, y) {
     let valid = [];
-    if (x + 2 <= 7 && y + 1 <= 7) valid.push([x + 2, y + 1]);
-    if (x + 1 <= 7 && y + 2 <= 7) valid.push([x + 1, y + 2]);
-    if (x - 1 >= 0 && y + 2 <= 7) valid.push([x - 1, y + 2]);
-    if (x - 2 >= 0 && y + 1 <= 7) valid.push([x - 2, y + 1]);
-    if (x - 2 >= 0 && y - 2 >= 0) valid.push([x - 2, y - 2]);
-    if (x - 1 >= 0 && y - 2 >= 0) valid.push([x - 1, y - 2]);
-    if (x + 1 <= 7 && y - 2 >= 0) valid.push([x + 1, y - 2]);
-    if (x + 2 <= 7 && y - 1 >= 0) valid.push([x + 2, y - 1]);
+    if (x + 2 <= 8 && y + 1 <= 8) valid.push([x + 2, y + 1]);
+    if (x + 1 <= 8 && y + 2 <= 8) valid.push([x + 1, y + 2]);
+    if (x - 1 >= 1 && y + 2 <= 8) valid.push([x - 1, y + 2]);
+    if (x - 2 >= 1 && y + 1 <= 8) valid.push([x - 2, y + 1]);
+    if (x - 2 >= 1 && y - 2 >= 1) valid.push([x - 2, y - 2]);
+    if (x - 1 >= 1 && y - 2 >= 1) valid.push([x - 1, y - 2]);
+    if (x + 1 <= 8 && y - 2 >= 1) valid.push([x + 1, y - 2]);
+    if (x + 2 <= 8 && y - 1 >= 1) valid.push([x + 2, y - 1]);
     return valid;
 }
 
