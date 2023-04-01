@@ -30,8 +30,8 @@ function validMoves(x, y) {
 // Create an adjacency list (graph) whith all possible moves for each coordinate
 function createGraph(size) {
     let graph = {};
-    for (let i = 0; i < size; i++) {
-        for (let j = 0; j < size; j++) {
+    for (let i = 1; i <= size; i++) {
+        for (let j = 1; j <= size; j++) {
             if (!(`${j},${i}` in graph)) graph[`${j},${i}`] = [];
             let valid = validMoves(j, i);
             for (let move of valid) {
