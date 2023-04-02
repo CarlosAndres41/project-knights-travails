@@ -103,3 +103,7 @@ function traverseBoard(src, set = new Set()) {
     }
     return visited;
 }
+
+let graph = createGraph(8);
+// console.log(traverse([1,1]))
+console.log(knightMoves([3, 3], [4, 3]));
