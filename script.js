@@ -12,19 +12,21 @@ function createBoard(size) {
 // Takes a src node and a dst node coordinates in the form [x, y] and returns the shortest path
 // between them
 function knightMoves(source, destination) {
-    let [src, dst] = convert(source, destination);
-    let visited = new Set();
-    let queue = [[src, src]];
-    while (queue.length > 0) {
-        let [node, path] = queue.shift();
-        visited.add(node);
-        if (node === dst) {
-            return path;
-        }
-        for (let neighbor of graph[node]) {
-            if (!visited.has(neighbor)) {
-                // path.push(neighbor)
-                queue.push([neighbor, path + ` ${neighbor}`]);
+    if (checkCoordinates(source) && checkCoordinates(destination)) {
+        let [src, dst] = convert(source, destination);
+        let visited = new Set();
+        let queue = [[src, src]];
+        while (queue.length > 0) {
+            let [node, path] = queue.shift();
+            visited.add(node);
+            if (node === dst) {
+                return path;
+            }
+            for (let neighbor of graph[node]) {
+                if (!visited.has(neighbor)) {
+                    // path.push(neighbor)
+                    queue.push([neighbor, path + ` ${neighbor}`]);
+                }
             }
         }
     }
@@ -46,6 +48,13 @@ function convert(src, dst) {
         destination = dst;
     }
     return [source, destination];
+}
+
+// Checks for coordinates to be within [1,1] and [8,8]
+function checkCoordinates(coor) {
+    if (coor[0] >= 1 && coor[0] <= 8 && coor[1] >= 1 && coor[1] <= 8) {
+        return true;
+    } else throw new Error('invalid coordinates');
 }
 
 // Returns an array whit the coordinates of the valid next moves
