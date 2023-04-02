@@ -30,6 +30,24 @@ function knightMoves(source, destination) {
     }
 }
 
+// Converts anf array in the form [x, y] to 'x,y'
+function convert(src, dst) {
+    let source;
+    if (typeof src === 'object') {
+        source = src.join();
+    } else {
+        source = src;
+    }
+
+    let destination;
+    if (typeof dst === 'object') {
+        destination = dst.join();
+    } else {
+        destination = dst;
+    }
+    return [source, destination];
+}
+
 // Returns an array whit the coordinates of the valid next moves
 function validMoves(x, y) {
     let valid = [];
