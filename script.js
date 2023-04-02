@@ -9,8 +9,25 @@ function createBoard(size) {
     return board;
 }
 
-function knightMoves(start) {
-    board[start[0] - 1][start[1] - 1] = 'K';
+// Takes a src node and a dst node coordinates in the form [x, y] and returns the shortest path
+// between them
+function knightMoves(source, destination) {
+    let [src, dst] = convert(source, destination);
+    let visited = new Set();
+    let queue = [[src, src]];
+    while (queue.length > 0) {
+        let [node, path] = queue.shift();
+        visited.add(node);
+        if (node === dst) {
+            return path;
+        }
+        for (let neighbor of graph[node]) {
+            if (!visited.has(neighbor)) {
+                // path.push(neighbor)
+                queue.push([neighbor, path + ` ${neighbor}`]);
+            }
+        }
+    }
 }
 
 // Returns an array whit the coordinates of the valid next moves
