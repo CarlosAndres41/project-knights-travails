@@ -20,7 +20,10 @@ function knightMoves(source, destination) {
             let [node, path] = queue.shift();
             visited.add(node);
             if (node === dst) {
-                return path;
+                let finalPath = path.split(' ').join(' -> ');
+                return `You made it in ${
+                    path.split(' ').length - 1
+                } moves, here is your path: ${finalPath}`;
             }
             for (let neighbor of graph[node]) {
                 if (!visited.has(neighbor)) {
